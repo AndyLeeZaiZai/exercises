@@ -11,7 +11,7 @@ PHRASES = {
     "class %%%(object):\n\tdef __init__(self, ***)" :
         "class %%% has-a __init__ that takes self and *** parameters.",
     "class %%%(object):\n\tdef ***(self, @@@)":
-        "class %%% has a function named *** taht self and @@@ parameters.",
+        "class %%% has a function named *** that takes zself and @@@ parameters.",
     "*** = %%%()":
         "Set *** to an instance of class %%%.",
     "***.*** = '***'":
@@ -37,7 +37,7 @@ def convert(snippet, phrase):
 
     for i in range(0, snippet.count("@@@")):
         param_count = random.randint(1,3)
-        param_names.append(', '.join(ramdom.sample(WORDS, param_count)))
+        param_names.append(', '.join(random.sample(WORDS, param_count)))
     for sentence in snippet, phrase:
         result = sentence[:]
 
@@ -57,7 +57,7 @@ def convert(snippet, phrase):
 
     return results
 
-#keep going until they hit CTRL-D
+#keep going until they hit CTRL-C
 try:
      while True:
          snippets = PHRASES.keys()
